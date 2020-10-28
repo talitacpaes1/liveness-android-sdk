@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FaceCaptchaSample</string>
+    <string name="open_facecaptcha">Abrir FaceCaptcha</string>
+</resources>
