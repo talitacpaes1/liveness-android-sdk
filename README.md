@@ -24,6 +24,10 @@ dependencies {
 }
 ```
 
-## Release Notes
+## Release notes
 
 - As novidades das versões podem ser acessadas [neste link](Documentation/ReleaseNotes.md).
+
+## Guias de migração
+
+- [1.4.0](Documentation/Migration-Guide-1.4.0.md)

@@ -1,9 +1,9 @@
-
 # Liveness 1.4.0 - Guia de migração
 
 #### Guia de migração para a versão 1.4.0 da SDK Liveness Android.
 
 1. Com a adição do enum `FaceCaptchaErrorCode`, agora a forma de identificação dos erros retornados pelo SDK está mais consistente. Os erros podem ser verificados como no exemplo abaixo:
+
 ```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
@@ -38,5 +38,35 @@ private fun onResultCancelled(data: Intent?) {
             FaceCaptchaErrorCode.LOW_MEMORY -> Log.d(TAG, "Error code: LOW_MEMORY")
         }
     }
+}
+```
+
+Os erros podem assumir os seguintes valores:
+
+```kotlin
+/**  
+ * Erros que podem ser retornados pelo FaceCaptcha.
+ */
+enum class FaceCaptchaErrorCode {  
+    // Parâmetros inválidos  
+    INVALID_BUNDLE_PARAMS,  
+    // App Key inválido.  
+    INVALID_APP_KEY,  
+    // Certiface offline.  
+    CERTIFACE_OFF,  
+    // Aparelho não possui câmera frontal  
+    NO_FRONT_CAMERA,  
+    // Não foi concedida permissão de acesso à câmera do aparelho.  
+    NO_CAMERA_PERMISSION,  
+    // Sem conexão à Internet.  
+    NO_INTERNET_CONNECTION,  
+    // Chamada telefônica em andamento. Não é possível iniciar o desafio durante uma chamada telefônica.  
+    PHONE_CALL_IN_PROGRESS,  
+    // Erro na requisição.  
+    REQUEST_ERROR,  
+    // App foi minimizado durante o uso do FaceCaptcha, isso faz com que o desafio seja encerrado.  
+    CHALLENGE_INTERRUPTED,  
+    // Memória do aparelho está baixa  
+    LOW_MEMORY  
 }
 ```
