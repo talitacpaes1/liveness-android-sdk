@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
             putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
             putExtra(FaceCaptchaActivity.PARAM_OVERLAY_IMAGE, R.drawable.overlay)
+            putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
         }
 
         startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
@@ -78,6 +79,6 @@ class MainActivity : AppCompatActivity() {
         private val TAG = MainActivity::class.java.simpleName
         private const val CAPTCHA_RESULT_REQUEST = 1
         private const val ENDPOINT = "https://comercial.certiface.com.br:443"
-        private const val APP_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZXJ0aWZhY2UiLCJ1c2VyIjoiRDgyNjcyNjdGQkZGQ0QzNjk4RENFM0Y3NjhDNTg5MTIyQkY4fGZlbGlwZS5tb2JpbGUiLCJlbXBDb2QiOiIwMDAwMDAwMDAxIiwiZmlsQ29kIjoiMDAwMDAwMjU3OCIsImNwZiI6IjM4MDc1NjUwODY3Iiwibm9tZSI6IkEyMjVERkU3RDk0NzZCMzA1OTAxRDczM0U3NTUyM0JCMEFCNDA2MkE1NzUyMEVENjk1M0EzREJGOUIyNzA4NjZGQjEyOERCRTBCODUwRUJCQ0RGRDk2Rjg2OENCODg5QkQ4OTZDQjIwRDA2QkU4NUM5Qzg4NjY5QzE5RTQxNjAyNkQ1QjVGQkMxfEZFTElQRSBTSUxWQSIsIm5hc2NpbWVudG8iOiIwNS8wNS8xOTkwIiwiZWFzeS1pbmRleCI6IkFBQUFFaDAvdEg5VFk0VCtZMTNaV3pHdFIyUEJCbHhHbWdLU1U0dGlHZzA2MUtXMHZqY2FOQ2tvT281Zm9BPT0iLCJrZXkiOiJRV3hzYjNkaGJtTmxJSEpsY0hWc2MybDJaU0J6WlhnZ2JXRjVJR052Ym5SaGFXND0iLCJleHAiOjE2MTIzNTk5MDUsImlhdCI6MTYxMjM1OTYwNX0.JhwhiVLbPq1BYlYK8W04KmleoS81wREgjv9XKvQ8-vU"
+        private const val APP_KEY = ""
     }
 }

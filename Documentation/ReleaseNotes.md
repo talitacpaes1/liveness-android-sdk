@@ -1,5 +1,7 @@
-
 # Liveness - Release Notes
+
+#### [1.4.1](Migration-Guide-1.4.1.md)
+- Adição de um helper para debug, que exibe logs na tela através de Toasts.
 
 #### [1.4.0](Migration-Guide-1.4.0.md)
 - Foi criado um novo enum, `FaceCaptchaErrorCode`, que indica o tipo de erro retornado pelo SDK. 

@@ -20,7 +20,7 @@ No arquivo  `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-    implementation 'br.com.oititec:liveness-sdk:1.4.0'
+    implementation 'br.com.oititec:liveness-sdk:1.4.1'
 }
 ```
 
@@ -30,4 +30,5 @@ dependencies {
 
 ## Guias de migração
 
+- [1.4.1](Documentation/Migration-Guide-1.4.1.md)
 - [1.4.0](Documentation/Migration-Guide-1.4.0.md)
