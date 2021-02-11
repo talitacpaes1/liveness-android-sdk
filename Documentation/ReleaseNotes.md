@@ -1,5 +1,9 @@
 # Liveness - Release Notes
 
+#### [1.5.0](Migration-Guide-1.5.0.md)
+- Refatoração do mecanismo de callbacks da camera2 api.
+- Adição de dois códigos de erro: `ERROR_CAMERA_SETUP` e `ERROR_CAPTURE_PICTURE`.
+
 #### [1.4.1](Migration-Guide-1.4.1.md)
 - Adição de um helper para debug, que exibe logs na tela através de Toasts.
 

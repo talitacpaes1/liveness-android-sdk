@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity() {
                 FaceCaptchaErrorCode.REQUEST_ERROR -> Log.d(TAG, "Error code: REQUEST_ERROR")
                 FaceCaptchaErrorCode.CHALLENGE_INTERRUPTED -> Log.d(TAG, "Error code: CHALLENGE_INTERRUPTED")
                 FaceCaptchaErrorCode.LOW_MEMORY -> Log.d(TAG, "Error code: LOW_MEMORY")
+                FaceCaptchaErrorCode.ERROR_CAMERA_SETUP -> Log.d(TAG, "Error code: ERROR_CAMERA_SETUP")
+                FaceCaptchaErrorCode.ERROR_CAPTURE_PICTURE -> Log.d(TAG, "Error code: ERROR_CAPTURE_PICTURE")
             }
         }
     }
