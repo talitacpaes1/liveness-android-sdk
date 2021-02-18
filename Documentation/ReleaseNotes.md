@@ -1,5 +1,8 @@
 # Liveness - Release Notes
 
+#### 1.6.0
+- Otimização do uso de memória durante a captura de fotos.
+
 #### [1.5.0](Migration-Guide-1.5.0.md)
 - Refatoração do mecanismo de callbacks da camera2 api.
 - Adição de dois códigos de erro: `ERROR_CAMERA_SETUP` e `ERROR_CAPTURE_PICTURE`.
