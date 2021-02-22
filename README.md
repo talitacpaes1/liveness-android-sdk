@@ -20,7 +20,7 @@ No arquivo  `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-    implementation 'br.com.oititec:liveness-sdk:1.6.0'
+    implementation 'br.com.oititec:liveness-sdk:1.6.1'
 }
 ```
 
@@ -71,10 +71,12 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 2. Para tratar o caso de desafio concluído, dois parâmetros podem ser avaliados:
 - *FaceCaptchaActivity.PARAM_RESULT*: Booleano que indica se a prova de vida foi válida ou não.
 - *FaceCaptchaActivity.PARAM_RESULT_CAUSE*: String que indica a causa da falha.
+- *FaceCaptchaActivity.PARAM_RESULT_COD_ID*: Double com o código de retorno.
 ```kotlin
 private fun onResultSuccess(data: Intent?) {
     val result = data?.getBooleanExtra(FaceCaptchaActivity.PARAM_RESULT, false)
     val cause = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_CAUSE)
+    val codID = data?.getDoubleExtra(FaceCaptchaActivity.PARAM_RESULT_COD_ID, 0.0)
 }
 ```
 

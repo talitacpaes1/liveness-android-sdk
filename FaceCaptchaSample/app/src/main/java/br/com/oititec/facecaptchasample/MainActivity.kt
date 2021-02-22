@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
     private fun onResultSuccess(data: Intent?) {
         val result = data?.getBooleanExtra(FaceCaptchaActivity.PARAM_RESULT, false)
         val cause = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_CAUSE)
-        val hash = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_HASH)
+        val codID = data?.getDoubleExtra(FaceCaptchaActivity.PARAM_RESULT_COD_ID, 0.0)
         val protocol = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_PROTOCOL)
         Toast.makeText(this, "Valid: $result\nCause: $cause", Toast.LENGTH_LONG).show()
-        Log.i("RESULT_OK", "$result - $cause - $hash - $protocol")
+        Log.d(TAG, "Result: $result - Cause: $cause - CodID: $codID - Protocol: $protocol")
     }
 
     private fun onResultCancelled(data: Intent?) {

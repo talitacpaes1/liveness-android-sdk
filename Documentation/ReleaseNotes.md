@@ -1,5 +1,9 @@
 # Liveness - Release Notes
 
+#### 1.6.1
+- Adição do retorno `FaceCaptchaActivity.PARAM_RESULT_COD_ID`, com o código retornado na validação dos desafios.
+- A partir desta versão, a chave `FaceCaptchaActivity.PARAM_RESULT_HASH` está obsoleta, e não retornará valor nenhum.
+
 #### 1.6.0
 - Otimização do uso de memória durante a captura de fotos.
 
