@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FaceCaptchaSample</string>
-    <string name="open_facecaptcha">Abrir FaceCaptcha</string>
+    <string name="default_view">View Padrão</string>
+    <string name="custom_image">Imagem Customizada</string>
+    <string name="custom_view">View Customizada</string>
+    <string name="start">Iniciar</string>
+    <string name="initial_text">Toque no botão iniciar e siga as instruções na tela</string>
 </resources>

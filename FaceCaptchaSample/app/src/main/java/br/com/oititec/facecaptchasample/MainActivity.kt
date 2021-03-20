@@ -12,20 +12,48 @@ import br.com.oiti.certiface.UserData
 import br.com.oiti.certiface.data.FaceCaptchaErrorCode
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
 
-    fun onOpenFaceCaptchaClick(view: View) {
+    fun onDefaultClick(view: View) {
 
         val userData = UserData(appKey = APP_KEY)
 
         val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
             putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
             putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
-            putExtra(FaceCaptchaActivity.PARAM_OVERLAY_IMAGE, R.drawable.overlay)
             putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+        }
+
+        startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
+    }
+
+    fun onCustomImageClick(view: View) {
+
+        val userData = UserData(appKey = APP_KEY)
+
+        val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
+            putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
+            putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
+            putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+            putExtra(FaceCaptchaActivity.PARAM_OVERLAY_IMAGE, R.drawable.custom_overlay)
+        }
+
+        startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
+    }
+
+    fun onCustomViewClick(view: View) {
+
+        val userData = UserData(appKey = APP_KEY)
+
+        val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
+            putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
+            putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
+            putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+            putExtra(FaceCaptchaActivity.PARAM_CUSTOM_FRAGMENT, R.layout.fragment_custom)
         }
 
         startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
@@ -73,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                 FaceCaptchaErrorCode.LOW_MEMORY -> Log.d(TAG, "Error code: LOW_MEMORY")
                 FaceCaptchaErrorCode.ERROR_CAMERA_SETUP -> Log.d(TAG, "Error code: ERROR_CAMERA_SETUP")
                 FaceCaptchaErrorCode.ERROR_CAPTURE_PICTURE -> Log.d(TAG, "Error code: ERROR_CAPTURE_PICTURE")
+                FaceCaptchaErrorCode.INVALID_CUSTOM_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_FRAGMENT")
             }
         }
     }
@@ -81,6 +110,6 @@ class MainActivity : AppCompatActivity() {
         private val TAG = MainActivity::class.java.simpleName
         private const val CAPTCHA_RESULT_REQUEST = 1
         private const val ENDPOINT = "https://comercial.certiface.com.br:443"
-        private const val APP_KEY = ""
+        private const val APP_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZXJ0aWZhY2UiLCJ1c2VyIjoiMzBFNDRFOEFDQjYyOTRGRUREQjk5NUI5NjAzNjY4MkU2N0Q1fGZlbGlwZS5tb2JpbGUiLCJlbXBDb2QiOiIwMDAwMDAwMDAxIiwiZmlsQ29kIjoiMDAwMDAwMjU3OCIsImNwZiI6IjM4MDc1NjUwODY3Iiwibm9tZSI6IkFGMzYxNzI3MDg5NUYyMEE5N0RBMDFBRDY3NkY3OUZGOEUzQTc4MEFDNUM5NjYxMDhBODdGMDIzMjAyQkE3NjlDQzgyNUFGODI4NkZBQkNDNTc1QjgyNkZEQTEwQ0ZFQTNCQTA4MDVFOUVCNDg0MjJEQkQzQTQ5RTg4NTg4NUFEOEE2QkRERjc2fEZFTElQRSBTSUxWQSIsIm5hc2NpbWVudG8iOiIwNS8wNS8xOTkwIiwiZWFzeS1pbmRleCI6IkFBQUFFcjI4VVo5VnlBOTRtQlE4THJZbjJWUXpEV21hU29XeHBpSDFqcXVBODJiVVI4bkFjLytDNHlXdlJRPT0iLCJrZXkiOiJRMjl1YzJsa1pYSWdjM0JsWVd0cGJtY2diV1VnY0hKdmMzQmxZM1FnZDJoaGRHVT0iLCJleHAiOjE2MTYxOTA5MzUsImlhdCI6MTYxNjE5MDYzNX0.ZSMcAS6dDI5psJoCHgYAk4IITZJa2A-p_nnvFIuwXLc"
     }
 }

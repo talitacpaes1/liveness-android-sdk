@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="oiti_green">#FF5AAF58</color>
+    <color name="custom_blue">#2A76E1</color>
 </resources>
