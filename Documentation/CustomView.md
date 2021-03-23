@@ -19,7 +19,7 @@ O layout fornecido deve conter as seguintes views:
 |ViewGroup|challengeContainer|Não|View usada como container de challengeIcon e challengeText.|
 |View|initialInstructionView|Não|View que será mostrada inicialmente, e desaparece após startButton ser clicado.|
 
-OBS: As subviews podem ser de classe que extendam as classes descritas na tabela acima. Por exemplo, startButton pode ser da classe Button.
+OBS: As subviews podem ser de classes que extendam as classes descritas na tabela acima. Por exemplo, startButton pode ser da classe Button.
 
 Além das subviews especificadas, a view customizada pode conter outros elementos, apenas tomando cuidado para que os mesmos não interfiram nas subviews funcionais.
 
