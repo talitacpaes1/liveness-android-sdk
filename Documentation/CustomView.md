@@ -2,7 +2,7 @@
 
 A partir da versão 2.0.0, o SDK Liveness permite que a forma de visualização seja completamente customizada.
 
-Para isso, é necessário criar um layout que será utilizado pelo fragment do SDK, e passá-lo para o Intent da `FaceCaptchaActivity`, através da chave `PARAM_OVERLAY_IMAGE`. Este fragment deve obrigatoriamente conter alguns elementos visuais do IDs pré-determinados, para o correto funcionamento do processo de desafios.
+Para isso, é necessário criar um layout que será utilizado pelo fragment do SDK, e passá-lo para o Intent da `FaceCaptchaActivity`, através da chave `PARAM_OVERLAY_IMAGE`. Este fragment deve obrigatoriamente conter alguns elementos visuais com IDs pré-determinados, para o correto funcionamento do processo de desafios.
 
 Caso este fragment não esteja em conformidade com as especificações, será retornado o erro `INVALID_CUSTOM_FRAGMENT` no `onActivityResult` (através da chave `FaceCaptchaActivity.PARAM_RESULT_ERROR`). Para saber mais detalhes sobre a causa do erro, é possível verificar o valor retornado em `FaceCaptchaActivity.PARAM_RESULT_ERROR`.
 
@@ -18,6 +18,8 @@ O layout fornecido deve conter as seguintes views:
 |View|activityIndicatorView|Sim|View que será exibida em momentos de carregamento e validação.|
 |ViewGroup|challengeContainer|Não|View usada como container de challengeIcon e challengeText.|
 |View|initialInstructionView|Não|View que será mostrada inicialmente, e desaparece após startButton ser clicado.|
+
+OBS: As subviews podem ser de classe que extendam as classes descritas na tabela acima. Por exemplo, startButton pode ser da classe Button.
 
 Além das subviews especificadas, a view customizada pode conter outros elementos, apenas tomando cuidado para que os mesmos não interfiram nas subviews funcionais.
 
