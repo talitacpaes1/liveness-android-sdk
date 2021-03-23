@@ -20,7 +20,7 @@ No arquivo  `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-    implementation 'br.com.oititec:liveness-sdk:1.6.1'
+    implementation 'br.com.oititec:liveness-sdk:2.0.0'
 }
 ```
 
@@ -36,13 +36,11 @@ val userData = UserData(appKey = APP_KEY)
 2. Instancie um Intent para a classe `FaceCaptchaActivity`, com os seguintes extras:
 - *FaceCaptchaActivity.PARAM_ENDPOINT*: URL apontando para o ambiente desejado.
 - *FaceCaptchaActivity.PARAM_USER_DATA*: objeto do tipo `UserData`, criado no passo anterior.
-- *FaceCaptchaActivity.PARAM_OVERLAY_IMAGE (opcional)*: resource id de um drawable, para ser usado como overlay da câmera.
 - *FaceCaptchaActivity.PARAM_DEBUG_ON (opcional)*: booleano para ajudar a depurar. Faz com que mensagens de log sejam exibidas na tela através de `Toasts`.
 ```kotlin
 val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
     putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
     putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
-    putExtra(FaceCaptchaActivity.PARAM_OVERLAY_IMAGE, R.drawable.overlay)
     putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
 }
 ```
@@ -51,6 +49,33 @@ val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
 ```kotlin
 startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
 ```
+
+### Customização
+
+Além de poder usar o SDK em sua forma padrão de exibição, são fornecidas duas formas de customização: 
+
+1. Imagem de fundo customizada:
+Para exibir uma imagem de fundo (overlay da câmera) customizada, basta passar resource id da imagem desejada para o Intent da `FaceCaptchaActivity`, através da chave `PARAM_OVERLAY_IMAGE`. Exemplo:
+```kotlin
+val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
+    putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
+    putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
+    putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+    putExtra(FaceCaptchaActivity.PARAM_OVERLAY_IMAGE, R.drawable.custom_overlay)
+}
+```
+
+2. Visual completamente customizado:
+É possível configurar completamente o visual exibido pelo FaceCaptcha. Para isso, é necessário criar um layout que será utilizado pelo fragment do SDK, e passá-lo para o Intent da `FaceCaptchaActivity`, através da chave `PARAM_CUSTOM_FRAGMENT`. Exemplo:
+```kotlin
+val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
+    putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
+    putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
+    putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+    putExtra(FaceCaptchaActivity.PARAM_CUSTOM_FRAGMENT, R.layout.fragment_custom)
+}
+```
+Detalhes de como implementar a view customizada são encontrados [neste link](Documentation/CustomView.md).
 
 ### Tratando o retorno
 
@@ -117,6 +142,8 @@ enum class FaceCaptchaErrorCode {
     ERROR_CAMERA_SETUP,
     // Erro ao capturar foto
     ERROR_CAPTURE_PICTURE
+    // XML fornecido para a view customizada é inválido  
+    INVALID_CUSTOM_FRAGMENT
 }
 ```
 
@@ -130,6 +157,7 @@ Um exemplo de implementação pode ser encontrado no projeto [SampleFaceCaptcha]
 
 ## Guias de migração
 
+- [2.0.0](Documentation/Migration-Guide-2.0.0.md)
 - [1.5.0](Documentation/Migration-Guide-1.5.0.md)
 - [1.4.1](Documentation/Migration-Guide-1.4.1.md)
 - [1.4.0](Documentation/Migration-Guide-1.4.0.md)
