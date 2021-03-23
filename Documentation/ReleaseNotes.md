@@ -1,5 +1,9 @@
 # Liveness - Release Notes
 
+#### [2.0.0](Migration-Guide-2.0.0.md)
+- Layout redesenhado.
+- Mecanismo de view customizada.
+
 #### 1.6.1
 - Adição do retorno `FaceCaptchaActivity.PARAM_RESULT_COD_ID`, com o código retornado na validação dos desafios.
 - A partir desta versão, a chave `FaceCaptchaActivity.PARAM_RESULT_HASH` está obsoleta, e não retornará valor nenhum.
