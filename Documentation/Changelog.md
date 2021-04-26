@@ -1,4 +1,7 @@
-# Liveness - Release Notes
+# Changelog
+
+#### 2.1.0
+- [Documentoscopia.](Documentscopy-Usage.md)
 
 #### [2.0.0](Migration-Guide-2.0.0.md)
 - Layout redesenhado.
@@ -19,7 +22,7 @@
 - Adição de um helper para debug, que exibe logs na tela através de Toasts.
 
 #### [1.4.0](Migration-Guide-1.4.0.md)
-- Foi criado um novo enum, `FaceCaptchaErrorCode`, que indica o tipo de erro retornado pelo SDK. 
+- Foi criado um novo enum, `FaceCaptchaErrorCode`, que indica o tipo de erro retornado pelo SDK.
 - A chave `PARAM_RESULT_ERROR_APPKEY`, que indicava que a AppKey fornecida era inválida, ficou obsoleta nesta versão. Este erro agora pode ser verificado pelo código de erro `FaceCaptchaErrorCode.INVALID_APP_KEY `, através da chave `PARAM_RESULT_ERROR_CODE`.
 
 #### 1.3.2

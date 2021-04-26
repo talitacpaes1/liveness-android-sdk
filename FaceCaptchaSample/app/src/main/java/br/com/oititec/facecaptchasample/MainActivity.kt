@@ -10,6 +10,8 @@ import android.widget.Toast
 import br.com.oiti.certiface.FaceCaptchaActivity
 import br.com.oiti.certiface.UserData
 import br.com.oiti.certiface.data.FaceCaptchaErrorCode
+import br.com.oiti.certiface.documentscopy.DocumentscopyActivity
+import br.com.oiti.certiface.documentscopy.DocumentscopyErrorCode
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,6 +47,17 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
     }
 
+    fun onDocumentscopyClick(view: View) {
+
+        val intent = Intent(this, DocumentscopyActivity::class.java).apply {
+            putExtra(DocumentscopyActivity.PARAM_ENDPOINT, ENDPOINT)
+            putExtra(DocumentscopyActivity.PARAM_APP_KEY, APP_KEY)
+            putExtra(DocumentscopyActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+        }
+
+        startActivityForResult(intent, DOCUMENTSCOPY_RESULT_REQUEST)
+    }
+
     fun onCustomViewClick(view: View) {
 
         val userData = UserData(appKey = APP_KEY)
@@ -62,15 +75,23 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CAPTCHA_RESULT_REQUEST) {
-            when (resultCode) {
-                Activity.RESULT_OK -> onResultSuccess(data)
-                Activity.RESULT_CANCELED -> onResultCancelled(data)
+        when (requestCode) {
+            CAPTCHA_RESULT_REQUEST -> {
+                when (resultCode) {
+                    Activity.RESULT_OK -> onFaceCaptchaResultSuccess(data)
+                    Activity.RESULT_CANCELED -> onFaceCaptchaResultCancelled(data)
+                }
+            }
+            DOCUMENTSCOPY_RESULT_REQUEST -> {
+                when (resultCode) {
+                    Activity.RESULT_OK -> onDocumentscopyResultSuccess()
+                    Activity.RESULT_CANCELED -> onDocumentscopyCancelled(data)
+                }
             }
         }
     }
 
-    private fun onResultSuccess(data: Intent?) {
+    private fun onFaceCaptchaResultSuccess(data: Intent?) {
         val result = data?.getBooleanExtra(FaceCaptchaActivity.PARAM_RESULT, false)
         val cause = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_CAUSE)
         val codID = data?.getDoubleExtra(FaceCaptchaActivity.PARAM_RESULT_COD_ID, 0.0)
@@ -79,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Result: $result - Cause: $cause - CodID: $codID - Protocol: $protocol")
     }
 
-    private fun onResultCancelled(data: Intent?) {
+    private fun onFaceCaptchaResultCancelled(data: Intent?) {
 
         val errorMessage = data?.getStringExtra(FaceCaptchaActivity.PARAM_RESULT_ERROR)
         val errorCode = data?.getSerializableExtra(FaceCaptchaActivity.PARAM_RESULT_ERROR_CODE) as? FaceCaptchaErrorCode
@@ -106,10 +127,43 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun onDocumentscopyResultSuccess() {
+        Toast.makeText(this, "Sucesso documentoscopia", Toast.LENGTH_LONG).show()
+        Log.d(TAG, "Sucesso documentoscopia")
+    }
+
+    private fun onDocumentscopyCancelled(data: Intent?) {
+
+        val errorMessage = data?.getStringExtra(DocumentscopyActivity.PARAM_RESULT_ERROR)
+        val errorCode = data?.getSerializableExtra(DocumentscopyActivity.PARAM_RESULT_ERROR_CODE) as? DocumentscopyErrorCode
+
+        errorCode?.let {
+
+            Toast.makeText(this, "Código de Erro: $it\n\nMensagem: $errorMessage", Toast.LENGTH_LONG).show()
+
+            when (it) {
+                DocumentscopyErrorCode.INVALID_BUNDLE_PARAMS -> Log.d(TAG, "Error code: INVALID_BUNDLE_PARAMS")
+                DocumentscopyErrorCode.INVALID_APP_KEY -> Log.d(TAG, "Error code: INVALID_APP_KEY")
+                DocumentscopyErrorCode.CERTIFACE_OFF -> Log.d(TAG, "Error code: CERTIFACE_OFF")
+                DocumentscopyErrorCode.NO_BACK_CAMERA -> Log.d(TAG, "Error code: NO_BACK_CAMERA")
+                DocumentscopyErrorCode.NO_CAMERA_PERMISSION -> Log.d(TAG, "Error code: NO_CAMERA_PERMISSION")
+                DocumentscopyErrorCode.NO_INTERNET_CONNECTION -> Log.d(TAG, "Error code: NO_INTERNET_CONNECTION")
+                DocumentscopyErrorCode.REQUEST_ERROR -> Log.d(TAG, "Error code: REQUEST_ERROR")
+                DocumentscopyErrorCode.LOW_MEMORY -> Log.d(TAG, "Error code: LOW_MEMORY")
+                DocumentscopyErrorCode.ERROR_CAMERA_SETUP -> Log.d(TAG, "Error code: ERROR_CAMERA_SETUP")
+                DocumentscopyErrorCode.ERROR_CAPTURE_PICTURE -> Log.d(TAG, "Error code: ERROR_CAPTURE_PICTURE")
+            }
+        }
+    }
+
     companion object {
+
         private val TAG = MainActivity::class.java.simpleName
+
         private const val CAPTCHA_RESULT_REQUEST = 1
+        private const val DOCUMENTSCOPY_RESULT_REQUEST = 2
+
         private const val ENDPOINT = "https://comercial.certiface.com.br:443"
-        private const val APP_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZXJ0aWZhY2UiLCJ1c2VyIjoiMzBFNDRFOEFDQjYyOTRGRUREQjk5NUI5NjAzNjY4MkU2N0Q1fGZlbGlwZS5tb2JpbGUiLCJlbXBDb2QiOiIwMDAwMDAwMDAxIiwiZmlsQ29kIjoiMDAwMDAwMjU3OCIsImNwZiI6IjM4MDc1NjUwODY3Iiwibm9tZSI6IkFGMzYxNzI3MDg5NUYyMEE5N0RBMDFBRDY3NkY3OUZGOEUzQTc4MEFDNUM5NjYxMDhBODdGMDIzMjAyQkE3NjlDQzgyNUFGODI4NkZBQkNDNTc1QjgyNkZEQTEwQ0ZFQTNCQTA4MDVFOUVCNDg0MjJEQkQzQTQ5RTg4NTg4NUFEOEE2QkRERjc2fEZFTElQRSBTSUxWQSIsIm5hc2NpbWVudG8iOiIwNS8wNS8xOTkwIiwiZWFzeS1pbmRleCI6IkFBQUFFcjI4VVo5VnlBOTRtQlE4THJZbjJWUXpEV21hU29XeHBpSDFqcXVBODJiVVI4bkFjLytDNHlXdlJRPT0iLCJrZXkiOiJRMjl1YzJsa1pYSWdjM0JsWVd0cGJtY2diV1VnY0hKdmMzQmxZM1FnZDJoaGRHVT0iLCJleHAiOjE2MTYxOTA5MzUsImlhdCI6MTYxNjE5MDYzNX0.ZSMcAS6dDI5psJoCHgYAk4IITZJa2A-p_nnvFIuwXLc"
+        private const val APP_KEY = ""
     }
 }
