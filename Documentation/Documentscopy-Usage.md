@@ -77,5 +77,11 @@ enum class DocumentscopyErrorCode {
     ERROR_CAMERA_SETUP,
     // Erro ao capturar foto
     ERROR_CAPTURE_PICTURE
+    // XML fornecido para a view customizada do home fragment é inválido
+    INVALID_CUSTOM_HOME_FRAGMENT,
+    // XML fornecido para a view customizada do camera fragment é inválido
+    INVALID_CUSTOM_CAMERA_FRAGMENT,
+    // XML fornecido para a view customizada do confirmation fragment é inválido
+    INVALID_CUSTOM_CONFIRMATION_FRAGMENT
 }
 ```
