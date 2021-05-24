@@ -80,7 +80,7 @@ Na figura abaixo é possível visualizar o que cada uma das subviews representa 
 
 # Observações
 
-Caso algum dos fragment não estejam em conformidade com as especificações, será retornado o erro `INVALID_CUSTOM_FRAGMENT` no `onActivityResult` (através da chave `DocumentscopyActivity.PARAM_RESULT_ERROR`). Para saber mais detalhes sobre a causa do erro, é possível verificar o valor retornado em `DocumentscopyActivity.PARAM_RESULT_ERROR`.
+Caso os fragments não estejam em conformidade com as especificações, será retornado erro (`INVALID_CUSTOM_HOME_FRAGMENT`|`INVALID_CUSTOM_CAMERA_FRAGMENT`|`INVALID_CUSTOM_CONFIRMATION_FRAGMENT` ) no `onActivityResult` (através da chave `DocumentscopyActivity.PARAM_RESULT_ERROR`). Para saber mais detalhes sobre a causa do erro, é possível verificar o valor retornado em `DocumentscopyActivity.PARAM_RESULT_ERROR`.
 
 As subviews podem ser de classes que extendam as classes descritas nas tabela acimas. Por exemplo, sendButton pode ser da classe Button.
 

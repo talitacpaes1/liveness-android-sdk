@@ -1,11 +1,14 @@
 # Changelog
 
+#### 2.2.0
+- [Documentoscopia com view customizável.](Documentscopy-CustomView.md)
+
 #### 2.1.0
 - [Documentoscopia.](Documentscopy-Usage.md)
 
 #### [2.0.0](Migration-Guide-2.0.0.md)
 - Layout redesenhado.
-- Mecanismo de view customizada.
+- Mecanismo de view customizável.
 
 #### 1.6.1
 - Adição do retorno `FaceCaptchaActivity.PARAM_RESULT_COD_ID`, com o código retornado na validação dos desafios.

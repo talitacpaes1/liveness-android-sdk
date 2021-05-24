@@ -47,6 +47,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="onDocumentscopyClick"
-        android:text="@string/documentscopy" />
+        android:text="@string/default_documentscopy" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onCustomDocumentscopyClick"
+        android:text="@string/custom_documentscopy" />
 
 </LinearLayout>

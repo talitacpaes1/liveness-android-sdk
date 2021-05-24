@@ -58,6 +58,23 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(intent, DOCUMENTSCOPY_RESULT_REQUEST)
     }
 
+    fun onCustomDocumentscopyClick(view: View) {
+
+        val intent = Intent(this, DocumentscopyActivity::class.java).apply {
+            putExtra(DocumentscopyActivity.PARAM_ENDPOINT, ENDPOINT)
+            putExtra(DocumentscopyActivity.PARAM_APP_KEY, APP_KEY)
+            putExtra(DocumentscopyActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_HOME_FRAGMENT, R.layout.fragment_doc_home_custom)
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_CAMERA_FRAGMENT, R.layout.fragment_doc_camera_custom)
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_CONFIRMATION_FRAGMENT, R.layout.fragment_doc_confirmation_custom)
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_CAM_INSTRUCTION_SINGLE, getString(R.string.center_doc))
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_CAM_INSTRUCTION_FRONT, getString(R.string.center_front))
+            putExtra(DocumentscopyActivity.PARAM_CUSTOM_CAM_INSTRUCTION_BACK, getString(R.string.center_back))
+        }
+
+        startActivityForResult(intent, DOCUMENTSCOPY_RESULT_REQUEST)
+    }
+
     fun onCustomViewClick(view: View) {
 
         val userData = UserData(appKey = APP_KEY)
@@ -152,6 +169,9 @@ class MainActivity : AppCompatActivity() {
                 DocumentscopyErrorCode.LOW_MEMORY -> Log.d(TAG, "Error code: LOW_MEMORY")
                 DocumentscopyErrorCode.ERROR_CAMERA_SETUP -> Log.d(TAG, "Error code: ERROR_CAMERA_SETUP")
                 DocumentscopyErrorCode.ERROR_CAPTURE_PICTURE -> Log.d(TAG, "Error code: ERROR_CAPTURE_PICTURE")
+                DocumentscopyErrorCode.INVALID_CUSTOM_HOME_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_HOME_FRAGMENT")
+                DocumentscopyErrorCode.INVALID_CUSTOM_CAMERA_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_CAMERA_FRAGMENT")
+                DocumentscopyErrorCode.INVALID_CUSTOM_CONFIRMATION_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_CONFIRMATION_FRAGMENT")
             }
         }
     }
@@ -163,7 +183,7 @@ class MainActivity : AppCompatActivity() {
         private const val CAPTCHA_RESULT_REQUEST = 1
         private const val DOCUMENTSCOPY_RESULT_REQUEST = 2
 
-        private const val ENDPOINT = "https://comercial.certiface.com.br:443"
+        private const val ENDPOINT = "https://comercial.certiface.com.br:8443"
         private const val APP_KEY = ""
     }
 }
