@@ -21,6 +21,12 @@ val intent = Intent(this, DocumentscopyActivity::class.java).apply {
 startActivityForResult(intent, DOCUMENTSCOPY_RESULT_REQUEST)
 ```
 
+### Customização
+
+Além de poder usar o SDK em sua forma padrão de exibição, é possível customizar o seu visual.
+
+Detalhes de como implementar a view customizada são encontrados [neste link](Documentscopy-CustomView.md).
+
 ### Tratando o retorno
 
 1. Para receber o resultado da Documentoscopia, implemente o método `onActivityResult`. No caso de envio de documento concluído, o resultCode será `RESULT_OK`, e no caso de algum erro, o resultCode será `RESULT_CANCELED`.
