@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.2.1
+- Ajuste na qualidade das imagens do Liveness.
+
 #### 2.2.0
 - [Documentoscopia com view customizável.](Documentscopy-CustomView.md)
 
