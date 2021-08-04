@@ -20,7 +20,7 @@ No arquivo  `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-    implementation 'br.com.oititec:liveness-sdk:2.2.1'
+    implementation 'br.com.oititec:liveness-sdk:2.3.0'
 }
 ```
 

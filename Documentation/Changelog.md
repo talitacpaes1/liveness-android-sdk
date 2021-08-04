@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.3.0
+- Fluxo de recaptura de documento em caso de falha.
+
 #### 2.2.1
 - Ajuste na qualidade das imagens do Liveness.
 

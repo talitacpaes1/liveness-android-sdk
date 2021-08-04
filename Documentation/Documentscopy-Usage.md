@@ -83,5 +83,7 @@ enum class DocumentscopyErrorCode {
     INVALID_CUSTOM_CAMERA_FRAGMENT,
     // XML fornecido para a view customizada do confirmation fragment é inválido
     INVALID_CUSTOM_CONFIRMATION_FRAGMENT
+    // FaceCaptcha não foi realizada
+    FACECAPTCHA_NOT_EXECUTED
 }
 ```

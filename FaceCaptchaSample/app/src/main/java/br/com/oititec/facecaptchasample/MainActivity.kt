@@ -172,6 +172,7 @@ class MainActivity : AppCompatActivity() {
                 DocumentscopyErrorCode.INVALID_CUSTOM_HOME_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_HOME_FRAGMENT")
                 DocumentscopyErrorCode.INVALID_CUSTOM_CAMERA_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_CAMERA_FRAGMENT")
                 DocumentscopyErrorCode.INVALID_CUSTOM_CONFIRMATION_FRAGMENT -> Log.d(TAG, "Error code: INVALID_CUSTOM_CONFIRMATION_FRAGMENT")
+                DocumentscopyErrorCode.FACECAPTCHA_NOT_EXECUTED -> Log.d(TAG, "Error code: FACECAPTCHA_NOT_EXECUTED")
             }
         }
     }
