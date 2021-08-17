@@ -1,6 +1,9 @@
 package br.com.oititec.facecaptchasample
 
 import android.app.Activity
+import android.content.ClipDescription.MIMETYPE_TEXT_PLAIN
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +15,7 @@ import br.com.oiti.certiface.UserData
 import br.com.oiti.certiface.data.FaceCaptchaErrorCode
 import br.com.oiti.certiface.documentscopy.DocumentscopyActivity
 import br.com.oiti.certiface.documentscopy.DocumentscopyErrorCode
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,9 +24,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    fun onPasteClick(view: View) {
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val canPaste =  when {
+            !clipboard.hasPrimaryClip() -> {
+                false
+            }
+            clipboard.primaryClipDescription?.hasMimeType(MIMETYPE_TEXT_PLAIN) != true -> {
+                // This disables the paste menu item, since the clipboard has data but it is not plain text
+                false
+            }
+            else -> {
+                // This enables the paste menu item, since the clipboard contains plain text.
+                true
+            }
+        }
+        if (canPaste) {
+            app_key_edit_text.setText(clipboard.primaryClip?.getItemAt(0)?.text ?: "")
+        }
+    }
+
     fun onDefaultClick(view: View) {
 
-        val userData = UserData(appKey = APP_KEY)
+        val appKey = app_key_edit_text.text.toString()
+
+        if (appKey.trim().isEmpty()) {
+            Toast.makeText(this, R.string.fill_app_key, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userData = UserData(appKey = appKey)
 
         val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
             putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
@@ -35,7 +66,14 @@ class MainActivity : AppCompatActivity() {
 
     fun onCustomImageClick(view: View) {
 
-        val userData = UserData(appKey = APP_KEY)
+        val appKey = app_key_edit_text.text.toString()
+
+        if (appKey.trim().isEmpty()) {
+            Toast.makeText(this, R.string.fill_app_key, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userData = UserData(appKey = appKey)
 
         val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
             putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
@@ -47,11 +85,39 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
     }
 
+    fun onCustomViewClick(view: View) {
+
+        val appKey = app_key_edit_text.text.toString()
+
+        if (appKey.trim().isEmpty()) {
+            Toast.makeText(this, R.string.fill_app_key, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userData = UserData(appKey = appKey)
+
+        val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
+            putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
+            putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
+            putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+            putExtra(FaceCaptchaActivity.PARAM_CUSTOM_FRAGMENT, R.layout.fragment_custom)
+        }
+
+        startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
+    }
+
     fun onDocumentscopyClick(view: View) {
+
+        val appKey = app_key_edit_text.text.toString()
+
+        if (appKey.trim().isEmpty()) {
+            Toast.makeText(this, R.string.fill_app_key, Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val intent = Intent(this, DocumentscopyActivity::class.java).apply {
             putExtra(DocumentscopyActivity.PARAM_ENDPOINT, ENDPOINT)
-            putExtra(DocumentscopyActivity.PARAM_APP_KEY, APP_KEY)
+            putExtra(DocumentscopyActivity.PARAM_APP_KEY, appKey)
             putExtra(DocumentscopyActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
         }
 
@@ -60,9 +126,16 @@ class MainActivity : AppCompatActivity() {
 
     fun onCustomDocumentscopyClick(view: View) {
 
+        val appKey = app_key_edit_text.text.toString()
+
+        if (appKey.trim().isEmpty()) {
+            Toast.makeText(this, R.string.fill_app_key, Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val intent = Intent(this, DocumentscopyActivity::class.java).apply {
             putExtra(DocumentscopyActivity.PARAM_ENDPOINT, ENDPOINT)
-            putExtra(DocumentscopyActivity.PARAM_APP_KEY, APP_KEY)
+            putExtra(DocumentscopyActivity.PARAM_APP_KEY, appKey)
             putExtra(DocumentscopyActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
             putExtra(DocumentscopyActivity.PARAM_CUSTOM_HOME_FRAGMENT, R.layout.fragment_doc_home_custom)
             putExtra(DocumentscopyActivity.PARAM_CUSTOM_CAMERA_FRAGMENT, R.layout.fragment_doc_camera_custom)
@@ -73,20 +146,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         startActivityForResult(intent, DOCUMENTSCOPY_RESULT_REQUEST)
-    }
-
-    fun onCustomViewClick(view: View) {
-
-        val userData = UserData(appKey = APP_KEY)
-
-        val intent = Intent(this, FaceCaptchaActivity::class.java).apply {
-            putExtra(FaceCaptchaActivity.PARAM_ENDPOINT, ENDPOINT)
-            putExtra(FaceCaptchaActivity.PARAM_USER_DATA, userData)
-            putExtra(FaceCaptchaActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
-            putExtra(FaceCaptchaActivity.PARAM_CUSTOM_FRAGMENT, R.layout.fragment_custom)
-        }
-
-        startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -185,6 +244,7 @@ class MainActivity : AppCompatActivity() {
         private const val DOCUMENTSCOPY_RESULT_REQUEST = 2
 
         private const val ENDPOINT = "https://comercial.certiface.com.br:8443"
+
         private const val APP_KEY = ""
     }
 }
