@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.3.1
+- Melhoria na captura das fotos.
+
 #### 2.3.0
 - Fluxo de recaptura de documento em caso de falha.
 
