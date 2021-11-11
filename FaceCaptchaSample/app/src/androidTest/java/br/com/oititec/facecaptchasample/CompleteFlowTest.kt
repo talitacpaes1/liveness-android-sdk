@@ -26,8 +26,10 @@ import org.junit.runner.RunWith
 
 private const val BASIC_SAMPLE_PACKAGE = "br.com.oititec.facecaptchasample"
 private const val LAUNCH_TIMEOUT = 5000L
-private const val DEFAULT_TIMEOUT = 60000L
+private const val DEFAULT_TIMEOUT = 120000L
 private const val EXISTS_TIMEOUT = 5000L
+private const val DEFAULT_SLEEP = 4000L
+private const val SHORT_SLEEP = 2000L
 
 @RunWith(AndroidJUnit4::class)
 class CompleteFlowTest {
@@ -71,9 +73,11 @@ class CompleteFlowTest {
     fun executeCompleteFlow() {
 
         // Opens FaceCaptcha
-        val startButton = device.findObject(UiSelector().text("INICIAR"))
-        startButton.waitForExists(EXISTS_TIMEOUT)
-        startButton.clickAndWaitForNewWindow()
+//        val startButton = device.findObject(UiSelector().text("INICIAR"))
+//        startButton.waitForExists(EXISTS_TIMEOUT)
+//        startButton.clickAndWaitForNewWindow()
+        val startButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "start_button")), EXISTS_TIMEOUT)
+        startButton.click()
 
         // Camera permission
         val gotItButton = device.findObject(UiSelector().text("ENTENDI"))
@@ -88,71 +92,88 @@ class CompleteFlowTest {
         }
 
         // Start challenge
-        var startFaceCaptchaButton = device.findObject(UiSelector().text("INICIAR"))
-        startFaceCaptchaButton.waitForExists(EXISTS_TIMEOUT)
-        if (!startFaceCaptchaButton.exists()) {
-            // Try to get button again
-            startFaceCaptchaButton = device.findObject(UiSelector().className("android.widget.Button").instance(0))
-        }
-        startFaceCaptchaButton.clickAndWaitForNewWindow(DEFAULT_TIMEOUT)
+//        var startFaceCaptchaButton = device.findObject(UiSelector().text("INICIAR"))
+//        startFaceCaptchaButton.waitForExists(EXISTS_TIMEOUT)
+//        if (!startFaceCaptchaButton.exists()) {
+//            // Try to get button again
+//            startFaceCaptchaButton = device.findObject(UiSelector().className("android.widget.Button").instance(0))
+//        }
+//        startFaceCaptchaButton.clickAndWaitForNewWindow(DEFAULT_TIMEOUT)
+        val startFaceCaptchaButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "startButton")), EXISTS_TIMEOUT)
+        startFaceCaptchaButton.click()
 
         // Start single doc flow
-        val oneDocText = "1 foto com\nfrente e verso"
-        val oneDocButton = device.findObject(UiSelector().text(oneDocText))
-        oneDocButton.waitForExists(DEFAULT_TIMEOUT)
-        oneDocButton.clickAndWaitForNewWindow()
+//        val oneDocText = "1 foto com\nfrente e verso"
+//        val oneDocButton = device.findObject(UiSelector().text(oneDocText))
+//        oneDocButton.waitForExists(DEFAULT_TIMEOUT)
+//        oneDocButton.clickAndWaitForNewWindow()
+        val oneDocButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "onePictureButton")), DEFAULT_TIMEOUT)
+        oneDocButton.click()
 
         // Capture picture
+        Thread.sleep(DEFAULT_SLEEP)
         var captureButton = device.findObject(UiSelector().className("android.widget.ImageButton").instance(0))
         captureButton.waitForExists(DEFAULT_TIMEOUT)
         captureButton.click()
 
         // Confirm picture
-        var confirmImageButton = device.findObject(UiSelector().text("USAR FOTO"))
-        confirmImageButton.waitForExists(DEFAULT_TIMEOUT)
-        confirmImageButton.clickAndWaitForNewWindow()
-
-        // Send picture
-        var sendButton = device.findObject(UiSelector().text("ENVIAR FOTOS"))
-        sendButton.waitForExists(EXISTS_TIMEOUT)
-        sendButton.clickAndWaitForNewWindow()
-
-        // Start two docs flow
-        val twoDocsText = "2 fotos:"
-        val twoDocsButton = device.findObject(UiSelector().text(twoDocsText))
-        twoDocsButton.waitForExists(DEFAULT_TIMEOUT)
-        twoDocsButton.clickAndWaitForNewWindow()
-
-        // Rotate device to landscape
-        device.setOrientationLeft()
-
-        // Capture front picture
-        captureButton = device.findObject(UiSelector().className("android.widget.ImageButton").instance(0))
-        captureButton.waitForExists(DEFAULT_TIMEOUT)
-        captureButton.click()
-        confirmImageButton = device.findObject(UiSelector().text("USAR FOTO"))
-        confirmImageButton.waitForExists(DEFAULT_TIMEOUT)
+        Thread.sleep(SHORT_SLEEP)
+//        var confirmImageButton = device.findObject(UiSelector().text("USAR FOTO"))
+//        confirmImageButton.waitForExists(DEFAULT_TIMEOUT)
+//        confirmImageButton.clickAndWaitForNewWindow()
+        var confirmImageButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "usePictureButton")), EXISTS_TIMEOUT)
         confirmImageButton.click()
 
-        // Capture back picture
-        captureButton.click()
-        confirmImageButton.clickAndWaitForNewWindow()
-
-        // Rotate device to portrait
-        device.setOrientationNatural()
-
         // Send picture
-        sendButton = device.findObject(UiSelector().text("ENVIAR FOTOS"))
-        sendButton.waitForExists(EXISTS_TIMEOUT)
-        sendButton.clickAndWaitForNewWindow()
+//        Thread.sleep(SHORT_SLEEP)
+//        var sendButton = device.findObject(UiSelector().text("ENVIAR FOTOS"))
+//        sendButton.waitForExists(EXISTS_TIMEOUT)
+//        sendButton.clickAndWaitForNewWindow()
+        var sendButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "sendButton")), EXISTS_TIMEOUT)
+        sendButton.click()
 
-        // Wait until doc activity appears
-        device.wait(Until.hasObject(By.text(oneDocText)), DEFAULT_TIMEOUT)
+        // Start two docs flow
+//        val twoDocsText = "2 fotos:"
+//        val twoDocsButton = device.findObject(UiSelector().text(twoDocsText))
+//        twoDocsButton.waitForExists(DEFAULT_TIMEOUT)
+//        twoDocsButton.clickAndWaitForNewWindow()
+        val twoDocsButton = device.wait(Until.findObject(By.res(BASIC_SAMPLE_PACKAGE, "twoPicturesButton")), DEFAULT_TIMEOUT)
+//
+//        // Rotate device to landscape
+//        device.setOrientationLeft()
+//        Thread.sleep(DEFAULT_SLEEP)
+//
+//        // Capture front picture
+//        captureButton = device.findObject(UiSelector().className("android.widget.ImageButton").instance(0))
+//        captureButton.waitForExists(DEFAULT_TIMEOUT)
+//        captureButton.click()
+//        Thread.sleep(SHORT_SLEEP)
+//        confirmImageButton = device.findObject(UiSelector().text("USAR FOTO"))
+//        confirmImageButton.waitForExists(DEFAULT_TIMEOUT)
+//        confirmImageButton.click()
+//
+//        // Capture back picture
+//        Thread.sleep(DEFAULT_SLEEP)
+//        captureButton.click()
+//        Thread.sleep(SHORT_SLEEP)
+//        confirmImageButton.clickAndWaitForNewWindow()
+//
+//        // Rotate device to portrait
+//        device.setOrientationNatural()
+//        Thread.sleep(DEFAULT_SLEEP)
+//
+//        // Send picture
+//        sendButton = device.findObject(UiSelector().text("ENVIAR FOTOS"))
+//        sendButton.waitForExists(EXISTS_TIMEOUT)
+//        sendButton.clickAndWaitForNewWindow()
+//
+//        // Wait until doc activity appears
+//        device.wait(Until.hasObject(By.text(oneDocText)), DEFAULT_TIMEOUT)
 
         // Close doc screen
         device.pressBack()
 
-        // Close app
-        device.pressBack()
+//        // Close app
+//        device.pressBack()
     }
 }
