@@ -20,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/fc_inform_doc"
+            android:text="@string/fc_doc_home_subtitle"
             android:textColor="@color/dark_text"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/onePictureButton"

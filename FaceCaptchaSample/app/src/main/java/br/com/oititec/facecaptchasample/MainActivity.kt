@@ -7,11 +7,11 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import br.com.oiti.certiface.FaceCaptchaActivity
-import br.com.oiti.certiface.UserData
 import br.com.oiti.certiface.data.FaceCaptchaErrorCode
 import br.com.oiti.certiface.documentscopy.DocumentscopyActivity
 import br.com.oiti.certiface.documentscopy.DocumentscopyErrorCode
+import br.com.oiti.certiface.facecaptcha.FaceCaptchaActivity
+import br.com.oiti.certiface.facecaptcha.UserData
 import br.com.oititec.facecaptchasample.data.CertifaceRepository
 import br.com.oititec.facecaptchasample.data.SharedPrefKey
 import br.com.oititec.facecaptchasample.data.SharedPrefManager
@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                     FaceCaptchaActivity.PARAM_DEBUG_ON,
                     false
                 ) // Passar true para mostrar logs na tela
+                putExtra(FaceCaptchaActivity.PARAM_SHOW_CONFIRMATION, true)
             }
 
             startActivityForResult(intent, CAPTCHA_RESULT_REQUEST)
@@ -161,10 +162,6 @@ class MainActivity : AppCompatActivity() {
             putExtra(
                 DocumentscopyActivity.PARAM_CUSTOM_CAMERA_FRAGMENT,
                 R.layout.fragment_doc_camera_custom
-            )
-            putExtra(
-                DocumentscopyActivity.PARAM_CUSTOM_CONFIRMATION_FRAGMENT,
-                R.layout.fragment_doc_confirmation_custom
             )
             putExtra(
                 DocumentscopyActivity.PARAM_CUSTOM_CAM_INSTRUCTION_SINGLE,
@@ -264,10 +261,6 @@ class MainActivity : AppCompatActivity() {
                 FaceCaptchaErrorCode.NO_INTERNET_CONNECTION -> Log.d(
                     TAG,
                     "Error code: NO_INTERNET_CONNECTION"
-                )
-                FaceCaptchaErrorCode.PHONE_CALL_IN_PROGRESS -> Log.d(
-                    TAG,
-                    "Error code: PHONE_CALL_IN_PROGRESS"
                 )
                 FaceCaptchaErrorCode.REQUEST_ERROR -> Log.d(TAG, "Error code: REQUEST_ERROR")
                 FaceCaptchaErrorCode.CHALLENGE_INTERRUPTED -> Log.d(
