@@ -26,9 +26,14 @@ dependencies {
 
 ## Uso
 
-### Liveness - Prova de Vida
+### Liveness Oiti
 
 As instruções de uso e integração do Liveness podem ser acessadas [neste link](Documentation/Liveness-Usage.md).
+
+### Liveness 3D
+
+As instruções de uso e integração do Liveness podem ser acessadas neste link.
+
 
 ### Documentoscopia
 
