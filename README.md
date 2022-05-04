@@ -1,55 +1,71 @@
-# Certiface
+#  Certiface para Android
 
-Bibliotecas Certiface para Android.
+Neste repositório encontre as documentações para **Android** sobre o **Liveness FaceCaptcha**, **Liveness 3D** e **Documentoscopia**.
 
-## Instalação
 
-### Gradle
+
+## Sobre
+
+O Liveness, ou Prova de Vida, pode ser executado através de  SDK único que reúne os tipos: *Liveness FaceCaptcha* e *Liveness 3D*. 
+
+Os tipos de Liveness serão apresentados na demonstração do serviço e a escolha de um deles deve ser efetuada mediante contratação. Um diagnóstico será efetuado pelo time comercial, responsável por ofertar a melhor experiência para o cliente, considerando seu o modelo de negócio e o comportamento de seus usuários.
+
+**Para cada tipo de Liveness, são apresentados propriedades técnicas específicas**. Assim, a pessoa desenvolvedora deve executar os comandos pertencentes ao tipo do serviço contratado.
+
+Abaixo, estão descritos os processos de: instalação, uso, guias de migração e outros documentos. Esses processos integram o projeto FaceCapctha.
+
+##  Instalação
+
+###  Gradle
 
 No arquivo `build.gradle` do projeto, adicione o repositório:
 
 ```gradle
 allprojects {
-    repositories {
-        maven { url "https://raw.githubusercontent.com/oititec/liveness-android-sdk/main/" }
-    }
+repositories {
+maven { url "https://raw.githubusercontent.com/oititec/liveness-android-sdk/main/" }
+}
 }
 ```
 
-No arquivo  `build.gradle` do módulo/app, adicione a dependência:
+No arquivo `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-    implementation 'br.com.oititec:liveness-sdk:2.3.1'
+implementation 'br.com.oititec:liveness-sdk:2.3.1'
 }
 ```
 
-## Uso
+##  Uso
 
-### Liveness Oiti
+###  Liveness FaceCaptcha
 
-As instruções de uso e integração do Liveness podem ser acessadas [neste link](Documentation/Liveness-Usage.md).
+As instruções de uso e integração do **Liveness FaceCaptcha** podem ser acessadas [neste link](Documentation/Liveness-Usage.md).
 
-### Liveness 3D
+###  Liveness 3D
 
-As instruções de uso e integração do Liveness podem ser acessadas neste link.
+As instruções de uso e integração do **Liveness 3D** podem ser acessadas [neste link](Documentation/Liveness3D-Usage.md).
+
+###  Documentoscopia
+
+As instruções de uso e integração da **Documentoscopia** podem ser acessadas [neste link](Documentation/Documentscopy-Usage.md).
 
 
-### Documentoscopia
+##  Outros Documentos
 
-As instruções de uso e integração da Documentoscopia podem ser acessadas [neste link](Documentation/Documentscopy-Usage.md).
+###  Sample
 
-## Sample
+- Um exemplo de implementação pode ser encontrado no projeto [SampleFaceCaptcha](https://github.com/oititec/liveness-android-sdk/tree/main/FaceCaptchaSample "SampleFaceCaptcha"), neste mesmo repositório.
 
-Um exemplo de implementação pode ser encontrado no projeto [SampleFaceCaptcha](https://github.com/oititec/liveness-android-sdk/tree/main/FaceCaptchaSample "SampleFaceCaptcha"), neste mesmo repositório.
+###  Changelog
 
-## Changelog
+- As novidades das versões podem ser acessadas [neste link](Documentation/Changelog.md).
 
-As novidades das versões podem ser acessadas [neste link](Documentation/Changelog.md).
-
-## Guias de migração
+##  Guias de migração
 
 - [2.0.0](Documentation/Migration-Guide-2.0.0.md)
 - [1.5.0](Documentation/Migration-Guide-1.5.0.md)
 - [1.4.1](Documentation/Migration-Guide-1.4.1.md)
 - [1.4.0](Documentation/Migration-Guide-1.4.0.md)
+
+>⚠️ **Para conhecer mais sobre Liveness, consulte [este link.](https://certifaceid.readme.io/docs/liveness-detection-vs-atualizada)**
