@@ -22,9 +22,9 @@ No arquivo `build.gradle` do projeto, adicione o repositório:
 
 ```gradle
 allprojects {
-repositories {
-maven { url "https://raw.githubusercontent.com/oititec/liveness-android-sdk/main/" }
-}
+  repositories {
+     maven { url "https://raw.githubusercontent.com/oititec/liveness-android-sdk/main/" }
+  }
 }
 ```
 
@@ -32,7 +32,7 @@ No arquivo `build.gradle` do módulo/app, adicione a dependência:
 
 ```gradle
 dependencies {
-implementation 'br.com.oititec:liveness-sdk:2.3.1'
+  implementation 'br.com.oititec:liveness-sdk:2.3.1'
 }
 ```
 
