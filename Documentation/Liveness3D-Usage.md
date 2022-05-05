@@ -5,9 +5,9 @@
 **PASSO 1.** Crie um objeto do tipo `Liveness3DUser`, passando uma appKey (recebida previamente). Deve diferir para cada vez que for apresentar o Liveness.
 
 ```kotlin
-data  class  Liveness3DUser(
-	val appKey: String,
-	val liveness3DTheme: Liveness3DTheme?
+data class Liveness3DUser(
+  val appKey: String,
+  val liveness3DTheme: Liveness3DTheme?
 )
 ```
 
@@ -19,9 +19,9 @@ data  class  Liveness3DUser(
 
 ```kotlin
 val intent = Intent(this, Liveness3DActivity::class.java).apply {
-	putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
-	putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
-	putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+    putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
+    putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
+    putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
 }
 ```
 
@@ -41,9 +41,9 @@ Além de poder usar o SDK em sua forma padrão de exibição, são fornecidas du
 
 ```kotlin
 val intent = Intent(this, Liveness3DActivity::class.java).apply {
-	putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
-	putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
-	putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+    putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
+    putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
+    putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
 }
 ```
 
@@ -52,11 +52,11 @@ val intent = Intent(this, Liveness3DActivity::class.java).apply {
 
 ```kotlin
 val intent = Intent(this, Liveness3DActivity::class.java).apply {
-	putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
-	putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
-	putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
-	putExtra(Liveness3DActivity.PARAM_CUSTOM_INSTRUCTION_SCREEN, R.layout.fragment_custom)
-	putExtra(Liveness3DActivity.PARAM_CUSTOM_PERMISSION_SCREEN, R.layout.fragment_custom)
+    putExtra(Liveness3DActivity.PARAM_ENDPOINT, ENDPOINT)
+    putExtra(Liveness3DActivity.PARAM_LIVENESS3D_USER, liveness3DUser)
+    putExtra(Liveness3DActivity.PARAM_DEBUG_ON, false) // Passar true para mostrar logs na tela
+    putExtra(Liveness3DActivity.PARAM_CUSTOM_INSTRUCTION_SCREEN, R.layout.fragment_custom)
+    putExtra(Liveness3DActivity.PARAM_CUSTOM_PERMISSION_SCREEN, R.layout.fragment_custom)
 }
 ```
 
@@ -126,8 +126,8 @@ Para tratar o caso de erro, os seguintes parâmetros podem ser avaliados:
 
 ```kotlin
 private fun onLiveness3DResultCancelled(data: Intent?) {
-val errorMessage = data?.getStringExtra(Liveness3DActivity.PARAM_RESULT_ERROR)
-val errorCode = data?.getSerializableExtra(Liveness3DActivity.PARAM_RESULT_ERROR_CODE) as? Liveness3DErrorCode
+    val errorMessage = data?.getStringExtra(Liveness3DActivity.PARAM_RESULT_ERROR)
+    val errorCode = data?.getSerializableExtra(Liveness3DActivity.PARAM_RESULT_ERROR_CODE) as? Liveness3DErrorCode
 // Handle error…
 }
 ```
@@ -138,25 +138,25 @@ val errorCode = data?.getSerializableExtra(Liveness3DActivity.PARAM_RESULT_ERROR
 enum class Liveness3DErrorCode {
 
 // Parâmetros inválidos
-INVALID_BUNDLE_PARAMS,
+   INVALID_BUNDLE_PARAMS,
 
 // App Key inválido.
-INVALID_APP_KEY,
+   INVALID_APP_KEY,
 
 // Aparelho não possui câmera frontal
-NO_FRONT_CAMERA,
+   NO_FRONT_CAMERA,
 
 // Não foi concedida permissão de acesso à câmera do aparelho.
-NO_CAMERA_PERMISSION,
+   NO_CAMERA_PERMISSION,
 
 // Sem conexão à Internet.
-NO_INTERNET_CONNECTION,
+   NO_INTERNET_CONNECTION,
 
 // Erro na requisição.
-REQUEST_ERROR,
+   REQUEST_ERROR,
 
 // XML fornecido para a view customizada é inválido
-INVALID_CUSTOM_FRAGMENT_INSTRUCTION_SCREEN
-INVALID_CUSTOM_FRAGMENT_PERMISSION_SCREEN
+   INVALID_CUSTOM_FRAGMENT_INSTRUCTION_SCREEN
+   INVALID_CUSTOM_FRAGMENT_PERMISSION_SCREEN
 }
 ```
