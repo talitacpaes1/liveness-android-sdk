@@ -13,7 +13,7 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 
 ## 1. Elementos Customizáveis
 
-**INSERIR IMAGEM AQUI 
+inserir imagem aqui 
 
 **Botão de cancelamento:** imagem e localização.
 
@@ -34,7 +34,7 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 
 ## 2. Customizações Gerais
 
-**INSERIR IMAGEM AQUI 
+![Customizacoes_gerais](Images/liveness3d_secao_customizacoes_gerais.png)
 
 **1 Botão Voltar**
  - cancelButtonCustomizationCustomImage
