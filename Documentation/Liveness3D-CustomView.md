@@ -6,42 +6,42 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 
 **São elementos customizáveis:** textos, cores, imagens, fontes, bordas e linhas.
 
-**São telas customizáveis:** tela principal e de identificação, de orientações para usuários; tela de preparação, de progresso e de sucesso.
+**São telas customizáveis:** tela principal, de identificação e de orientações para usuários; tela de preparação, de progresso e de sucesso.
 
 **Não são customizáveis**: propriedades de segurança e direitos autorais, desvios de layout significativos, dimensionamento das fontes.
 
 
-## Elementos Customizáveis
-
-**Botão de cancelamento:** Imagem e Localização.
-
-**Todas as telas Liveness 3D e Tela de fundo:** Cores: borda, largura, raio, fundo; Sombra.
-
-**Marca do cliente:** Logotipo de marca personalizada exibido na interface.
-
-**Tela de execução do liveness:** Cores: borda, largura, raio, fundo, texto; Fonte do texto; Sombra.
-
-**Barra de Texto:** Cores: borda, largura, raio, fundo, texto; Fonte de texto; Sombra.
-
-**Bordas da captura da face:** Cor, largura, raios; Estilo de animação.
-
-**Quadro de captura e identificação:** Cores:  borda, largura, raio, fundo.
-
-**Botões de ação:** Cor da borda, largura, raio, fonte, fundo; Fonte de texto.
+## 1. Elementos Customizáveis
 
 **INSERIR IMAGEM AQUI 
 
-## Customizações gerais
+**Botão de cancelamento:** imagem e localização.
 
+**Todas as telas Liveness 3D e Tela de Fundo:** cores: borda, largura, raio, fundo; sombra.
+
+**Marca do cliente:** logotipo de marca personalizada exibido na interface.
+
+**Tela de execução do liveness:** cores: borda, largura, raio, fundo, texto; fonte do texto; sombra.
+
+**Barra de Texto:** cores: borda, largura, raio, fundo, texto; fonte de texto; sombra.
+
+**Bordas da captura da face:** cor, largura, raios; estilo de animação.
+
+**Quadro de captura e identificação:** cores: borda, largura, raio, fundo.
+
+**Botões de ação:** cor da borda, largura, raio, fonte, fundo; fonte de texto.
+
+
+## 2. Customizações Gerais
 
 **INSERIR IMAGEM AQUI 
 
 **1 Botão Voltar**
-- CancelButtonCustomization.customImage
-- CancelButtonCustomization.location
-- CancelButtonCustomization.customLocation
+ - CancelButtonCustomization.customImage
+ - CancelButtonCustomization.location
+ - CancelButtonCustomization.customLocation
 
-**2  Barra de texto e Frame Geral**
+**2  Barra de texto e Frame geral**
 - FeedbackCustomization.backgroundColor
 - FeedbackCustomization.cornerRadius
 - FeedbackCustomization.shadow
@@ -56,7 +56,7 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 - OvalCustomization.progressStrokeWidth
 - OvalCustomization.progressRadialOffset
 
-### Outras customizações
+### 2.1 Outras customizações
 
 **Cores do Texto**
 - GuidanceCustomization.foregroundColor
@@ -80,32 +80,29 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 > As customizações de orientações são aplicáveis apenas para dispositivos muito pequenos e com espaço de tela reduzido.
 
 
-### Outras customizações relevantes:
+### 2.2 Outras customizações relevantes:
 
 **Customize o estilo da appearing:**
-- FaceTecEntryAnimationCustomization: EntryAnimationStyle
+- EntryAnimationCustomization: EntryAnimationStyle
 
 **Customize o estilo da disappearing:**
-- FaceTecExitAnimationCustomization: ExitAnimationStyle
+- ExitAnimationCustomization: ExitAnimationStyle
 
 
-## Customizações da Tela de Execução do Liveness
+## 3. Customizações da Tela de Execução do Liveness 3D
 
-**As customização da tela de execução do Liveness devem respeitar as propriedades customizáveis vistas no fluxo anterior.**
+As **customizações da tela de execução do Liveness 3D** devem respeitar as propriedades customizáveis vistas acima.
 
 
-##  Customização da Tela de Nova Tentativa (Retry  Screen)
+## 4. Customização da Tela de Nova Tentativa (Retry  Screen)
 
 Nesta tela, são fornecidas orientações que guiam o usuário a realizar uma nova Sessão Liveness 3D. 
 Apresenta boa iluminação e pose, permitindo que o usuário compreenda as correções necessárias.
 
+### 4.1 Tela de Nova Tentativa
+
 **1 Orientação Principal**
 - headerFont
-
-**1.1 Orientação Principal - Adicionais**
-- retryScreenHeaderFont
-- retryScreenHeaderTextColor
-- retryScreenHeaderAttributedString
 
 **2 Orientação da Face**
 - retryScreenIdealFaceTecImage
@@ -117,10 +114,17 @@ Apresenta boa iluminação e pose, permitindo que o usuário compreenda as corre
 - retryScreenImageCornerRadius
 - retryScreenOvalStrokerColor
 
-**2.1 Orientação Secundária - Adicionais**
+**3 Orientações secundárias**
+- subtextFont
+
+### 4.2 Tela de Nova Tentativa - Adicionais
+
+**1 Orientação Principal - Adicionais**
+- retryScreenHeaderFont
+- retryScreenHeaderTextColor
+- retryScreenHeaderAttributedString
+
+**2 Orientação Secundária - Adicionais**
 - retryScreenSubtextFont
 - retryScreenSubtextTextColor
 - retryScreenSubtextAttributedString
-
-**3 Orientações secundárias**
-- subtextFont
