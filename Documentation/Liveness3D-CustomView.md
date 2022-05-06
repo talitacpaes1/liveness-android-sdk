@@ -37,45 +37,45 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 **INSERIR IMAGEM AQUI 
 
 **1 Botão Voltar**
- - CancelButtonCustomization.customImage
- - CancelButtonCustomization.location
- - CancelButtonCustomization.customLocation
+ - cancelButtonCustomizationCustomImage
+ - cancelButtonCustomizationLocation
+ - cancelButtonCustomizationCustomLocation
 
 **2  Barra de texto e Frame geral**
-- FeedbackCustomization.backgroundColor
-- FeedbackCustomization.cornerRadius
-- FeedbackCustomization.shadow
-- FeedbackCustomization.textColor
-- FeedbackCustomization.textFont
+- feedbackCustomizationBackgroundColor
+- feedbackCustomizationCornerRadius
+- feedbackCustomizationShadow
+- feedbackCustomizationTextColor
+- feedbackCustomizationTextFont
 
 **3  Borda da captura da face**
-- OvalCustomization.strokeColor
-- OvalCustomization.strokeWidth
-- OvalCustomization.progressColor1
-- OvalCustomization.progressColor2
-- OvalCustomization.progressStrokeWidth
-- OvalCustomization.progressRadialOffset
+- ovalCustomizationStrokeColor
+- ovalCustomizationStrokeWidth
+- ovalCustomizationProgressColor1
+- ovalCustomizationProgressColor2
+- ovalCustomizationProgressStrokeWidth
+- ovalCustomizationProgressRadialOffset
 
 ### 2.1 Outras customizações
 
 **Cores do Texto**
-- GuidanceCustomization.foregroundColor
+- guidanceCustomizationForegroundColor
 
 **Botões**
-- GuidanceCustomization.buttonFont
-- GuidanceCustomization.buttonBorderWidth
-- GuidanceCustomization.buttonBorderColor
-- GuidanceCustomization.buttonCornerRadius
-- GuidanceCustomization.buttonTextNormalColor
-- GuidanceCustomization.buttonTextHighlightColor
-- GuidanceCustomization.buttonTextDisabledColor
-- GuidanceCustomization.buttonBackgroundNormalColor
-- GuidanceCustomization.buttonBackgroundHighlightColor
-- GuidanceCustomization.buttonBackgroundDisabledColor
+- guidanceCustomizationButtonFont
+- guidanceCustomizationButtonBorderWidth
+- guidanceCustomizationButtonBorderColor
+- guidanceCustomizationButtonCornerRadius
+- guidanceCustomizationButtonTextNormalColor
+- guidanceCustomizationButtonTextHighlightColor
+- guidanceCustomizationButtonTextDisabledColor
+- guidanceCustomizationButtonBackgroundNormalColor
+- guidanceCustomizationButtonBackgroundHighlightColor
+- guidanceCustomizationButtonBackgroundDisabledColor
 
 **Customização de orientações**
-- GuidanceCustomization.readyScreenTextBackgroundColor
-- GuidanceCustomization.readyScreenTextBackgroundCornerRadius
+- guidanceCustomizationReadyScreenTextBackgroundColor
+- guidanceCustomizationReadyScreenTextBackgroundCornerRadius
 
 > As customizações de orientações são aplicáveis apenas para dispositivos muito pequenos e com espaço de tela reduzido.
 
@@ -102,29 +102,29 @@ Apresenta boa iluminação e pose, permitindo que o usuário compreenda as corre
 ### 4.1 Tela de Nova Tentativa
 
 **1 Orientação Principal**
-- headerFont
+- guidanceCustomizationHeaderFont
 
 **2 Orientação da Face**
-- retryScreenIdealFaceTecImage
-- retryScreenSlideshowImages
-- retryScreenSlideshowInterval
-- enableRetryScreenSlideshowShuffle
-- retryScreenImageBorderColor
-- retryScreenImageBorderWidth
-- retryScreenImageCornerRadius
-- retryScreenOvalStrokerColor
+- guidanceCustomizationRetryScreenIdealFaceTecImage
+- guidanceCustomizationRetryScreenSlideshowImages
+- guidanceCustomizationRetryScreenSlideshowInterval
+- guidanceCustomizationEnableRetryScreenSlideshowShuffle
+- guidanceCustomizationRetryScreenImageBorderColor
+- guidanceCustomizationRetryScreenImageBorderWidth
+- guidanceCustomizationRetryScreenImageCornerRadius
+- guidanceCustomizationRetryScreenOvalStrokerColor
 
 **3 Orientações secundárias**
-- subtextFont
+- guidanceCustomizationSubtextFont
 
 ### 4.2 Tela de Nova Tentativa - Adicionais
 
 **1 Orientação Principal - Adicionais**
-- retryScreenHeaderFont
-- retryScreenHeaderTextColor
-- retryScreenHeaderAttributedString
+- guidanceCustomizationRetryScreenHeaderFont
+- guidanceCustomizationRetryScreenHeaderTextColor
+- guidanceCustomizationRetryScreenHeaderAttributedString
 
 **2 Orientação Secundária - Adicionais**
-- retryScreenSubtextFont
-- retryScreenSubtextTextColor
-- retryScreenSubtextAttributedString
+- guidanceCustomizationRetryScreenSubtextFont
+- guidanceCustomizationRetryScreenSubtextTextColor
+- guidanceCustomizationRetryScreenSubtextAttributedString
