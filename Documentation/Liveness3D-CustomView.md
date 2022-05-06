@@ -100,6 +100,8 @@ As **customizações da tela de execução do Liveness 3D** devem respeitar as p
 Nesta tela, são fornecidas orientações que guiam o usuário a realizar uma nova Sessão Liveness 3D. 
 Apresenta boa iluminação e pose, permitindo que o usuário compreenda as correções necessárias.
 
+![customizacao_retry](Images/liveness3d_secao_retry.png)
+
 ### 4.1 Tela de Nova Tentativa
 
 **1 Orientação Principal**
