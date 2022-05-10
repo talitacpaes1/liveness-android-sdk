@@ -11,6 +11,8 @@ data class Liveness3DUser(
 )
 ```
 
+Detalhes de como customizar o Liveness3DTheme são encontrados [neste link](Liveness3D-Liveness3DTheme.md).
+
 **PASSO 2.**  Instancie um Intent para a classe `Liveness3DActivity`, com os seguintes extras:
 
 - *Liveness3DActivity.PARAM_ENDPOINT*: URL apontando para o ambiente desejado.
