@@ -105,3 +105,6 @@ Abaixo, estão mapeadas as propriedades para customização do Liveness3DTheme
     
     //Exit Animation Style
     val exitAnimationStyle: Liveness3DExitAnimationStyle? = Liveness3DExitAnimationStyle.RIPPLE_IN
+    
+    //Result Screen Message
+    val resultScreenOverrideSuccessMessage : String = "Tudo certo!"
