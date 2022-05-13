@@ -1,6 +1,6 @@
 # Guia de Customização do Liveness3DTheme - Versão Beta
     
-Abaixo, estão mapeadas as propriedades para customização do Liveness3DTheme
+Abaixo, estão mapeadas as propriedades para customização do `Liveness3DTheme`.
     
     //Guidance customization
     val guidanceCustomizationBackgroundColors: Int? = -1,
