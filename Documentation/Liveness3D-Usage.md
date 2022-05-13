@@ -6,9 +6,15 @@
 
 ```kotlin
 data class Liveness3DUser(
-  val appKey: String,
-  val liveness3DTheme: Liveness3DTheme?
-)
+    val appKey: String,
+    val environment: ENVIRONMENT3D? = ENVIRONMENT3D.HML,
+    val liveness3DTheme: Liveness3DTheme? = null
+) : Serializable
+
+enum class ENVIRONMENT3D {
+    HML,
+    PRD,
+}
 ```
 
 Detalhes de como customizar o Liveness3DTheme são encontrados [neste link](Liveness3D-Liveness3DTheme.md).
