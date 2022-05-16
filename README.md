@@ -24,10 +24,11 @@ No arquivo `build.gradle` do projeto, adicione o repositório:
 
 
 ```gradle
--- buid.gradle
+
 repositories {
     flatDir { dirs 'libs/' }
 }
+
 implementation 'br.com.oiti.liveness3d:3.0.0@aar'
 ```
 
