@@ -16,6 +16,23 @@ Abaixo, estão descritos os processos de: instalação, uso, guias de migração
 
 ##  Instalação
 
+A instalação pode ocorrer de duas formas: manualmente ou via Gradle (repositório).
+
+### Manual
+
+No arquivo `build.gradle` do projeto, adicione o repositório:
+
+
+```gradle
+-- buid.gradle
+repositories {
+    flatDir { dirs 'libs/' }
+}
+implementation 'br.com.oiti.liveness3d:3.0.0@aar'
+```
+
+> **Nota: [clique aqui](https://github.com/oititec/liveness-android-sdk/tree/main/br/com/oititec/liveness-sdk) para baixar os artefatos.**
+
 ###  Gradle
 
 No arquivo `build.gradle` do projeto, adicione o repositório:
