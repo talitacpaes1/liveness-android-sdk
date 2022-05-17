@@ -1,4 +1,6 @@
-# Guia de Customização do Liveness3DTheme - Versão Beta
+# Guia de Customização do Liveness3DTheme 
+
+> Versão Beta.
     
 Abaixo, estão mapeadas as propriedades para customização do `Liveness3DTheme`.
     
@@ -100,8 +102,8 @@ Abaixo, estão mapeadas as propriedades para customização do `Liveness3DTheme`
     
     //Cancel Button Customization
     @DrawableRes
-    val cancelButtonCustomImage: Int? = R.drawable.cancel_button,
-    val cancelButtonLocation: Liveness3DButtonLocation? = Liveness3DButtonLocation.TOP_LEFT,
+    val cancelButtonCustomizationCustomImage: Int? = R.drawable.cancel_button,
+    val cancelButtonCustomizationLocation: Liveness3DButtonLocation? = Liveness3DButtonLocation.TOP_LEFT,
     
     //Exit Animation Style
     val exitAnimationStyle: Liveness3DExitAnimationStyle? = Liveness3DExitAnimationStyle.RIPPLE_IN
