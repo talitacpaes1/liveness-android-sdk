@@ -1,4 +1,6 @@
-# Guia de Implementação de View Customizada do Liveness 3D - Versão Beta
+# Guia de Implementação de View Customizada do Liveness 3D
+
+> Versão Beta.
 
 
 
@@ -40,7 +42,7 @@ A Interface do Liveness 3D é altamente customizável e permite alterar cores, f
 **1 Botão Voltar**
  - cancelButtonCustomizationCustomImage
  - cancelButtonCustomizationLocation
- - cancelButtonCustomizationCustomLocation
+
 
 **2  Barra de texto e Frame geral**
 - feedbackCustomizationBackgroundColor
