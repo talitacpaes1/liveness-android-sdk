@@ -58,15 +58,27 @@ dependencies {
 
 ###  Liveness FaceCaptcha
 
-As instruções de uso e integração do **Liveness FaceCaptcha** podem ser acessadas [neste link](Documentation/Liveness-Usage.md).
+As instruções de uso, integração e implementação do **Liveness FaceCaptcha** podem ser acessadas nos links abaixo:
+
+  - [Guia de uso e integração](Documentation/Liveness-Usage.md);
+  - [Guia de implementação de view customizada](Documentation/Liveness-CustomView.md).
 
 ###  Liveness 3D
 
-As instruções de uso e integração do **Liveness 3D** podem ser acessadas [neste link](Documentation/Liveness3D-Usage.md).
+As instruções de uso, integração, implementação e customização do **Liveness 3D** podem ser acessadas nos links abaixo: 
+
+  - [Guia de uso e integração](Documentation/Liveness3D-Usage.md);
+  - [Guia de implementação de view customizada](Documentation/Liveness3D-CustomView.md);
+  - [Guia de customização do Liveness3DTheme](Documentation/Liveness3D-Liveness3DTheme.md).
+
 
 ###  Documentoscopia
 
-As instruções de uso e integração da **Documentoscopia** podem ser acessadas [neste link](Documentation/Documentscopy-Usage.md).
+As instruções de uso, integração e customização da **Documentoscopia** podem ser acessadas nos links abaixo:
+
+  - [Guia de uso e integração](Documentation/Documentscopy-Usage.md);
+  - [Guia de customização de view customizada](Documentation/Documentscopy-CustomView.md).
+
 
 
 ##  Outros Documentos
