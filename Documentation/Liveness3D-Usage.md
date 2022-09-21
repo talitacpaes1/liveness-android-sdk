@@ -139,7 +139,7 @@ private fun onLiveness3DResultCancelled(data: Intent?) {
 }
 ```
 
-`Liveness3DErrorCode` pode assumir os seguintes valores:
+`Liveness3DErrorMessage` pode assumir os seguintes valores:
 
 ```kotlin
 enum class Liveness3DErrorCode {
