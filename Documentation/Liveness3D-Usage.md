@@ -135,7 +135,6 @@ Para tratar o caso de erro, os seguintes parâmetros podem ser avaliados:
 ```kotlin
 private fun onLiveness3DResultCancelled(data: Intent?) {
     val errorMessage = data?.getStringExtra(Liveness3DActivity.PARAM_RESULT_ERROR)
-    val errorCode = data?.getSerializableExtra(Liveness3DActivity.PARAM_RESULT_ERROR_CODE) as? Liveness3DErrorCode
 // Handle error…
 }
 ```
