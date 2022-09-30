@@ -144,14 +144,8 @@ private fun onLiveness3DResultCancelled(data: Intent?) {
 ```kotlin
 enum class Liveness3DErrorCode {
 
-// Parâmetros inválidos
-   INVALID_BUNDLE_PARAMS,
-
 // App Key inválido.
    INVALID_APP_KEY,
-
-// Aparelho não possui câmera frontal
-   NO_FRONT_CAMERA,
 
 // Não foi concedida permissão de acesso à câmera do aparelho.
    NO_CAMERA_PERMISSION,
@@ -159,11 +153,7 @@ enum class Liveness3DErrorCode {
 // Sem conexão à Internet.
    NO_INTERNET_CONNECTION,
 
-// Erro na requisição.
-   REQUEST_ERROR,
-
-// XML fornecido para a view customizada é inválido
-   INVALID_CUSTOM_FRAGMENT_INSTRUCTION_SCREEN
-   INVALID_CUSTOM_FRAGMENT_PERMISSION_SCREEN
+// Liveness não completada pelo usuário
+   LIVENESS_NOT_COMPLETED
 }
 ```
