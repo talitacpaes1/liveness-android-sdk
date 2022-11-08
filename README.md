@@ -32,7 +32,7 @@ repositories {
 implementation 'br.com.oiti.liveness3d:3.0.0@aar'
 ```
 
-> **Nota: [clique aqui](https://github.com/oititec/liveness-android-sdk/tree/main/br/com/oititec/liveness-sdk) para baixar os artefatos.**
+> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions) para baixar os artefatos.**
 
 ###  Gradle
 
