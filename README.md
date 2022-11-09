@@ -12,7 +12,7 @@ Os tipos de Liveness serão apresentados na demonstração do serviço e a escol
 
 **Para cada tipo de Liveness, são apresentados propriedades técnicas específicas**. Assim, a pessoa desenvolvedora deve executar os comandos pertencentes ao tipo do serviço contratado.
 
-Abaixo, estão descritos os processos de: instalação, uso, guias de migração e outros documentos. Esses processos integram o projeto FaceCapctha.
+Abaixo, estão descritos os processos de: instalação, uso, guias de migração e outros documentos. Esses processos integram os projetos Liveness2D/FaceCaptcha e Liveness 3D.
 
 ##  Instalação
 
@@ -65,6 +65,10 @@ No arquivo `build.gradle` do módulo/app, adicione as seguintes dependências:
  ```
 
 > **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions/tree/master/Liveness%203D) para baixar os artefatos.**
+
+####  Processo de atualização
+
+> **A cada atualização, novas regras de segurança são adicionadas ao SDK, por esse motivo é altamente recomendável que o processo de atualização seja algo constante. Recomendamos ao menos uma atualização a cada 30 dias.**
 
 ##  Uso
 
