@@ -16,12 +16,15 @@ Abaixo, estão descritos os processos de: instalação, uso, guias de migração
 
 ##  Instalação
 
-A instalação pode ocorrer de duas formas: manualmente ou via Gradle (repositório).
+Para efetuar a instalação do liveness, seja **2D** ou **3D**, é necessário baixar e importar as dependências conforme exemplos abaixo:
 
-### Manual
+> **Nota 1:** É necessário baixar e colar o(s) artefato(s) dentro da pasta **libs/** no projeto.
 
-No arquivo `build.gradle` do projeto, adicione o repositório:
+> **Nota 2:** Não é necessário baixar e importar ambas as bibliotecas, somente aquela que for utilizada, seja **2D** ou **3D**.
 
+###  Liveness 2D/Facecaptcha
+
+No arquivo `build.gradle` do projeto, adicione a seguinte configuração:
 
 ```gradle
 
@@ -29,34 +32,43 @@ repositories {
     flatDir { dirs 'libs/' }
 }
 
-implementation 'br.com.oiti.liveness3d:3.0.0@aar'
 ```
 
-> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions) para baixar os artefatos.**
-
-###  Gradle
-
-No arquivo `build.gradle` do projeto, adicione o repositório:
-
-```gradle
-allprojects {
-  repositories {
-     maven { url "https://raw.githubusercontent.com/oititec/liveness-android-sdk/main/" }
-  }
-}
-```
-
-No arquivo `build.gradle` do módulo/app, adicione a dependência:
+No arquivo `build.gradle` do módulo/app, adicione as seguintes dependências:
 
 ```gradle
 dependencies {
-  implementation 'br.com.oititec:liveness-sdk:2.3.1'
+   implementation files('libs/liveness-sdk-2.3.1.aar')
 }
 ```
+> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions/tree/master/Liveness%202D) para baixar os artefatos.**
+
+### Liveness 3D
+
+No arquivo `build.gradle` do projeto, adicione a seguinte configuração:
+
+```gradle
+
+repositories {
+    flatDir { dirs 'libs/' }
+}
+
+```
+
+No arquivo `build.gradle` do módulo/app, adicione as seguintes dependências:
+
+```gradle
+ dependencies {
+   implementation files('libs/facetec-sdk-9.6.3.aar')
+   implementation files('libs/liveness3d-release.aar')
+ }
+ ```
+
+> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions/tree/master/Liveness%203D) para baixar os artefatos.**
 
 ##  Uso
 
-###  Liveness FaceCaptcha
+###  Liveness 2D/Facecaptcha
 
 As instruções de uso, integração e implementação do **Liveness FaceCaptcha** podem ser acessadas nos links abaixo:
 
