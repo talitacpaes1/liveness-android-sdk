@@ -59,7 +59,7 @@ No arquivo `build.gradle` do módulo/app, adicione as seguintes dependências:
 
 ```gradle
  dependencies {
-   implementation files('libs/facetec-sdk-9.6.3.aar')
+   implementation files('libs/facetec-sdk-9.4.23.aar')
    implementation files('libs/liveness3d-release.aar')
  }
  ```
