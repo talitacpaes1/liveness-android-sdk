@@ -41,7 +41,7 @@ dependencies {
    implementation files('libs/liveness-sdk-2.3.1.aar')
 }
 ```
-> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions/tree/master/Liveness%202D) para baixar os artefatos.**
+> **Nota: [clique aqui](https://github.com/oititec/android-oiti-versions/tree/master/Liveness%202D) para baixar os artefatos.**
 
 ### Liveness 3D
 
@@ -64,7 +64,7 @@ No arquivo `build.gradle` do módulo/app, adicione as seguintes dependências:
  }
  ```
 
-> **Nota: [clique aqui](https://github.com/oititec/oiti-android-versions/tree/master/Liveness%203D) para baixar os artefatos.**
+> **Nota: [clique aqui](https://github.com/oititec/android-oiti-versions/tree/master/Liveness%203D) para baixar os artefatos.**
 
 ####  Processo de atualização
 
