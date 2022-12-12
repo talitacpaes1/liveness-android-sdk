@@ -86,7 +86,7 @@ As instruções de uso, integração, implementação e customização do **Live
   - [Guia de uso e integração](Documentation/Liveness3D-Usage.md);
   - [Guia de implementação de view customizada](Documentation/Liveness3D-CustomView.md);
   - [Guia de customização do Liveness3DTheme](Documentation/Liveness3D-Liveness3DTheme.md);
-  - [Exemplo de Projeto: criação e inicialização](https://github.com/oititec/liveness3d-sample).
+  - [Exemplo de Projeto: criação e inicialização](https://github.com/oititec/android-liveness3d-sample).
 
 
 ###  Documentoscopia
